@@ -14,174 +14,174 @@
 
     <style>
       body {
-        background-color: #0B0B0C;
-        color: #E5E5E5;
+        background-color: #FAF9F6; /* Premium Off-White Warm background */
+        color: #333333;
         -webkit-tap-highlight-color: transparent;
       }
-      .gold-gradient {
-        background: linear-gradient(90deg, #F3E7C4 0%, #B89748 50%, #E5C47F 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      .gold-text {
+        color: #746855; /* The classic Ranka gold-brown color */
       }
       .luxury-card {
-        background: linear-gradient(145deg, #1C1C1E 0%, #121214 100%);
-        border: 1px solid rgba(184, 151, 72, 0.15);
+        background: #ffffff;
+        border: 1px solid #EAEAEA;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       }
       .swiper-pagination-bullet-active {
-        background: #B89748 !important;
+        background: #746855 !important;
       }
     </style>
   </head>
   <body>
     <!-- Header Component -->
     <div>
-      <header class="bg-[#121214] text-white relative flex items-center justify-center px-4 md:px-10 border-b border-neutral-900 h-24">
+      <header class="bg-[#F2E9E9] text-[#133235] relative flex items-center justify-center px-4 md:px-10 h-24 border-b border-[#E2D4D4]">
         <!-- Hamburger Menu Drawer Icon -->
-        <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none bg-neutral-900 p-2 rounded-xl border border-neutral-800" aria-label="Open Menu">
-          <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-7 h-7 invert" loading="lazy" />
+        <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none" aria-label="Open Menu">
+          <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-8 h-8" loading="lazy" />
         </button>
 
-        <!-- Centered Branding Identity -->
+        <!-- Centered Logo -->
         <div class="flex items-center gap-2 py-2">
           <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Ranka Logo" class="h-12 object-contain" />
         </div>
       </header>
 
       <!-- Navigation Drawer Component -->
-      <div id="drawer" class="fixed top-0 left-0 w-2/3 max-w-sm h-full bg-[#121214] border-r border-neutral-800 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
-        <div class="flex justify-between items-center gap-4 px-4 py-5 border-b border-neutral-800">
+      <div id="drawer" class="fixed top-0 left-0 w-2/3 max-w-sm h-full bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="flex justify-between items-center gap-4 px-4 py-5 border-b border-gray-200">
           <div class="text-2xl font-bold flex items-center gap-2">
              <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Ranka Logo" class="h-8 object-contain" />
           </div>
-          <button id="close-drawer" class="text-white/70 hover:text-white rounded text-2xl font-bold px-2" aria-label="Close Menu">✕</button>
+          <button id="close-drawer" class="text-gray-800 rounded text-2xl font-bold px-2" aria-label="Close Menu">✕</button>
         </div>
 
-        <!-- System Core JavaScript Integrations Links -->
-        <nav class="flex flex-col gap-1 px-4 py-4 text-neutral-300 font-muli">
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToScheme()">✨ Scheme Registration</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToBankDetails()">🏦 Bank Details</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToKyc()">🛡️ KYC Verification</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToRate()">📈 Live Gold Rate</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateSchemeRecords()">📊 Scheme Records</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToCustomerCard()">🪪 Digital Privilege Card</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateTransactionHistory()">📜 Transaction History</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToMyOrder()">📦 Active Order Tracking</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToUserProfile()">👤 My Account Profile</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToDigitalGold()">📀 Secure Digital Gold</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToARVirtualTryOn()">👓 AR Virtual Try-On</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToPanchang()">📅 Daily Panchang</a>
-          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToSetting()">⚙️ App Settings</a>
+        <!-- System Core Links (Exactly matching the original drawer) -->
+        <nav class="flex flex-col gap-1 px-4 py-4 text-gray-800 font-muli">
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToScheme()">Scheme</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToBankDetails()">Bank</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToKyc()">KYC</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToRate()">Rate</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateSchemeRecords()">Records</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToCustomerCard()">Card</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateTransactionHistory()">History</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToMyOrder()">Order</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToUserProfile()">Profile</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToDigitalGold()">Gold</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToARVirtualTryOn()">Virtual Try-On</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToPanchang()">Panchang</a>
+          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToSetting()">Settings</a>
         </nav>
       </div>
       <!-- Overlay Screen Mask -->
-      <div id="overlay" class="fixed inset-0 bg-black bg-opacity-70 z-40 hidden backdrop-blur-sm"></div>
+      <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 z-40 hidden backdrop-blur-sm"></div>
     </div>
 
-    <!-- Live Metal Rates Interactive Module -->
-    <div class="max-w-4xl mx-auto px-2 mt-4">
-        <div class="live-rate-container luxury-card rounded-2xl padding p-5">
-            <div class="flex justify-between items-center mb-4 border-b border-neutral-800 pb-2">
-                <h3 class="text-xs uppercase font-bold tracking-widest text-neutral-400">Live Metal Rates</h3>
-                <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">
+    <!-- Live Metal Rates Module -->
+    <div class="max-w-4xl mx-auto px-4 mt-6">
+        <div class="live-rate-container luxury-card rounded-2xl p-5">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-100 pb-2">
+                <h3 class="text-xs uppercase font-bold tracking-widest text-[#746855] font-playfair">Live Metal Rates</h3>
+                <span class="text-[10px] text-emerald-600 font-bold uppercase tracking-wider flex items-center gap-1">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Live
                 </span>
             </div>
             <div class="flex justify-between items-center mb-2">
-                <span class="text-sm font-muli text-neutral-200">24K Gold (10g)</span>
-                <span class="text-base font-bold text-[#B89748]">₹ 78,950</span>
+                <span class="text-sm font-muli text-gray-700">24K Gold (10g)</span>
+                <span class="text-base font-bold text-[#746855]">₹ 78,950</span>
             </div>
             <div class="flex justify-between items-center">
-                <span class="text-sm font-muli text-neutral-200">22K Gold (10g)</span>
-                <span class="text-base font-bold text-[#B89748]">₹ 72,450</span>
+                <span class="text-sm font-muli text-gray-700">22K Gold (10g)</span>
+                <span class="text-base font-bold text-[#746855]">₹ 72,450</span>
             </div>
         </div>
     </div>
 
-    <!-- Branding Slider Showcase Panel -->
-    <div class="max-w-4xl mx-auto px-2 relative overflow-hidden mt-4">
+    <!-- Branding Slider Showcase Banners -->
+    <div class="max-w-4xl mx-auto px-4 relative overflow-hidden mt-6">
       <div class="swiper rounded-2xl" id="BrandingSwiper">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
           <div class="swiper-slide relative">
-            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80" class="w-full h-[30vh] object-cover" alt="Slide 1" />
+            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80" class="w-full h-[25vh] object-cover" alt="Slide 1" />
           </div>
           <!-- Slide 2 -->
           <div class="swiper-slide relative">
-            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" class="w-full h-[30vh] object-cover" alt="Slide 2" />
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" class="w-full h-[25vh] object-cover" alt="Slide 2" />
           </div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
     </div>
 
-    <!-- Interactive Grid Dashboard Items -->
-    <section id="tabsWrapper" class="max-w-4xl mx-auto py-6 px-2 font-muli">
-      <div class="text-xs uppercase font-bold tracking-widest text-neutral-400 mb-4 px-1">Quick Actions Hub</div>
+    <!-- Interactive Grid Dashboard Items (Linking directly to App Interface actions) -->
+    <section id="tabsWrapper" class="max-w-4xl mx-auto py-6 px-4 font-muli">
+      <div class="text-xs uppercase font-bold tracking-widest text-gray-500 mb-4">Quick Actions Hub</div>
       <div id="tabs" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3">
           
-          <div onclick="navigateToScheme()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateToScheme()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">✨</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">Scheme</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">Scheme</span>
           </div>
-          <div onclick="navigateToBankDetails()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateToBankDetails()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">🏦</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">Bank</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">Bank</span>
           </div>
-          <div onclick="navigateToKyc()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateToKyc()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">🛡️</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">KYC</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">KYC</span>
           </div>
-          <div onclick="navigateToRate()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateToRate()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">📈</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">Rate</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">Rate</span>
           </div>
-          <div onclick="navigateSchemeRecords()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateSchemeRecords()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">📊</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">Records</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">Records</span>
           </div>
-          <div onclick="navigateToCustomerCard()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateToCustomerCard()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">🪪</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">Card</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">Card</span>
           </div>
-          <div onclick="navigateToUserProfile()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+          <div onclick="navigateToUserProfile()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
             <span class="text-2xl mb-1 block">👤</span>
-            <span class="text-[11px] font-bold text-neutral-300 uppercase">Profile</span>
+            <span class="text-[11px] font-bold text-gray-700 uppercase">Profile</span>
           </div>
 
       </div>
     </section>
 
     <!-- Detailed About Section -->
-    <section class="py-6 bg-[#0F0F11]">
+    <section class="py-8 bg-[#F2E9E9]/40 border-t border-b border-gray-200">
       <div class="max-w-4xl mx-auto px-4">
         <header class="mb-6">
-          <h1 class="text-xl text-center font-bold font-playfair tracking-wider gold-gradient">ABOUT US</h1>
+          <h1 class="text-2xl text-center font-bold font-playfair tracking-wider text-[#746855]">ABOUT US</h1>
         </header>
-        <div class="luxury-card rounded-2xl p-6 shadow-xl">
-          <h2 class="text-sm font-bold font-muli text-[#F3E7C4] mb-3 uppercase">The Ranka Legacy</h2>
-          <p class="text-xs leading-relaxed text-neutral-400 font-muli text-justify">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+          <h2 class="text-base font-bold font-muli text-[#746855] mb-3 uppercase">The Ranka Legacy</h2>
+          <p class="text-sm leading-relaxed text-gray-600 font-muli text-justify">
             Ranka Jewellers, a 143 year old establishment, is the unparalleled supremo of the jewellery business spread across 12 stores in Pune & Thane. Built on trust, tradition, and purity, Ranka is known for their innovative and ethnic designs that are always up to date with trends, transparency and quality.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Custom Footer Core Module -->
-    <footer class="bg-[#121214] border-t border-neutral-900 px-4 py-6 text-neutral-400 text-center font-muli mt-6">
-      <p class="text-[11px] text-neutral-500">Hours: 10:30am - 8:00pm | Closed on Monday</p>
+    <!-- Custom Footer Module -->
+    <footer class="bg-[#F2E9E9] px-4 py-8 text-center font-muli text-gray-600">
+      <p class="text-xs">Empire Estate, CTS 4510, 1, Old Mumbai - Pune Highway, Chinchwad, Pune.</p>
+      <p class="text-[11px] text-gray-500 mt-2">Hours: 10:30am - 8:00pm | Closed on Monday</p>
     </footer>
 
     <!-- Scripts Pipeline & Drawer Controls -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      // 1. Initialize Swiper for Image Banner Sliding
+      // Initialize Swiper for Image Banners
       const swiper = new Swiper('#BrandingSwiper', {
         loop: true,
         pagination: { el: '.swiper-pagination', clickable: true },
         autoplay: { delay: 3000 }
       });
 
-      // 2. Pure Native JavaScript Drawer Open/Close Logic
+      // Drawer Open/Close Logics
       const menuToggle = document.getElementById('menu-toggle');
       const closeDrawer = document.getElementById('close-drawer');
       const drawer = document.getElementById('drawer');
@@ -200,6 +200,55 @@
       menuToggle.addEventListener('click', openMenu);
       closeDrawer.addEventListener('click', closeMenu);
       overlay.addEventListener('click', closeMenu);
+
+      // --- CRITICAL LIVE-APP LINK INTERCEPTORS ---
+      // These functions match the native events embedded in your App Wrapper
+      function navigateToScheme() {
+          if (window.Android && window.Android.navigateToScheme) { window.Android.navigateToScheme(); }
+          else { window.location.href = "scheme-link"; }
+      }
+      function navigateToBankDetails() {
+          if (window.Android && window.Android.navigateToBankDetails) { window.Android.navigateToBankDetails(); }
+          else { window.location.href = "bank-link"; }
+      }
+      function navigateToKyc() {
+          if (window.Android && window.Android.navigateToKyc) { window.Android.navigateToKyc(); }
+          else { window.location.href = "kyc-link"; }
+      }
+      function navigateToRate() {
+          if (window.Android && window.Android.navigateToRate) { window.Android.navigateToRate(); }
+          else { window.location.href = "rate-link"; }
+      }
+      function navigateSchemeRecords() {
+          if (window.Android && window.Android.navigateSchemeRecords) { window.Android.navigateSchemeRecords(); }
+          else { window.location.href = "records-link"; }
+      }
+      function navigateToCustomerCard() {
+          if (window.Android && window.Android.navigateToCustomerCard) { window.Android.navigateToCustomerCard(); }
+          else { window.location.href = "card-link"; }
+      }
+      function navigateToUserProfile() {
+          if (window.Android && window.Android.navigateToUserProfile) { window.Android.navigateToUserProfile(); }
+          else { window.location.href = "profile-link"; }
+      }
+      function navigateTransactionHistory() {
+          if (window.Android && window.Android.navigateTransactionHistory) { window.Android.navigateTransactionHistory(); }
+      }
+      function navigateToMyOrder() {
+          if (window.Android && window.Android.navigateToMyOrder) { window.Android.navigateToMyOrder(); }
+      }
+      function navigateToDigitalGold() {
+          if (window.Android && window.Android.navigateToDigitalGold) { window.Android.navigateToDigitalGold(); }
+      }
+      function navigateToARVirtualTryOn() {
+          if (window.Android && window.Android.navigateToARVirtualTryOn) { window.Android.navigateToARVirtualTryOn(); }
+      }
+      function navigateToPanchang() {
+          if (window.Android && window.Android.navigateToPanchang) { window.Android.navigateToPanchang(); }
+      }
+      function navigateToSetting() {
+          if (window.Android && window.Android.navigateToSetting) { window.Android.navigateToSetting(); }
+      }
     </script>
   </body>
 </html>
