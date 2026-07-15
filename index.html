@@ -1,68 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ranka Legacy</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: #FAF9F6; 
-            color: #333; 
-            padding: 20px; 
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #EAEAEA;
-        }
-        .brand-header {
-            text-align: center;
-            border-bottom: 1px solid #EAEAEA;
-            padding-bottom: 16px;
-            margin-bottom: 20px;
-        }
-        .brand-title {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: #111;
-        }
-        .content-section {
-            margin-bottom: 20px;
-        }
-        .content-section h2 {
-            font-size: 15px;
-            color: #B89748; /* Luxury warm gold accent tone */
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        .content-section p {
-            font-size: 14px;
-            color: #555;
-            text-align: justify;
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ranka Jewellers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Muli:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 
-    <div class="container">
-        <div class="brand-header">
-            <div class="brand-title">THE RANKA LEGACY</div>
+    <style>
+      /* Luxury Dark Theme Global Variables & System Overrides */
+      body {
+        background-color: #0B0B0C;
+        color: #E5E5E5;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .gold-gradient {
+        background: linear-gradient(90deg, #F3E7C4 0%, #B89748 50%, #E5C47F 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .luxury-card {
+        background: linear-gradient(145deg, #1C1C1E 0%, #121214 100%);
+        border: 1px solid rgba(184, 151, 72, 0.15);
+      }
+      /* Swiper Pagination Styling Customization */
+      .swiper-pagination-bullet-active {
+        background: #B89748 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Component -->
+    <div>
+      <header class="bg-[#121214] text-white relative flex items-center justify-center px-4 md:px-10 border-b border-rgba(184,151,72,0.2) h-24" data-aos="fade-down">
+        <!-- Hamburger Menu Drawer Icon -->
+        <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none bg-neutral-900 p-2 rounded-xl border border-neutral-800" aria-label="Open Menu">
+          <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-7 h-7 invert" loading="lazy" />
+        </button>
+
+        <!-- Centered Branding Identity -->
+        <div class="flex items-center gap-2 py-2">
+          <!-- 💡 LOGO IMAGE CUSTOMIZATION: Replace assets/logo.jpg with your new server or hosting path -->
+          <img src="assets/logo.jpg" alt="Ranka Logo" class="h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <span class="hidden font-playfair tracking-widest text-xl font-bold gold-gradient">RANKA</span>
         </div>
-        
-        <div class="content-section">
-            <h2>Our Story</h2>
-            <p>Crafting timeless elegance and delivering trusted purity for generations. Our masterpieces are designed to celebrate your special moments with unparalleled shine, deep rooted tradition, and premium sophistication.</p>
+      </header>
+
+      <!-- Navigation Drawer Component -->
+      <div id="drawer" class="fixed top-0 left-0 w-2/3 max-w-sm h-full bg-[#121214] border-r border-neutral-800 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="flex justify-between items-center gap-4 px-4 py-5 border-b border-neutral-800">
+          <div class="text-2xl font-bold flex items-center gap-2">
+            <img src="assets/logo.jpg" alt="Logo" class="h-12" />
+          </div>
+          <button id="close-drawer" class="text-white/70 hover:text-white rounded text-2xl font-bold px-2" aria-label="Close Menu">✕</button>
         </div>
+
+        <!-- System Core JavaScript Integrations Links (Untouched API Call Hooks) -->
+        <nav class="flex flex-col gap-1 px-4 py-4 text-neutral-300 font-muli">
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToScheme()">✨ Scheme Registration</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToBankDetails()">🏦 Bank Details</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToKyc()">🛡️ KYC Verification</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToRate()">📈 Live Gold Rate</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateSchemeRecords()">📊 Scheme Records</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToCustomerCard()">🪪 Digital Privilege Card</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateTransactionHistory()">📜 Transaction History</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToMyOrder()">📦 Active Order Tracking</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToUserProfile()">👤 My Account Profile</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToDigitalGold()">📀 Secure Digital Gold</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToARVirtualTryOn()">👓 AR Virtual Try-On</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToPanchang()">📅 Daily Panchang</a>
+          <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToSetting()">⚙️ App Settings</a>
+        </nav>
+      </div>
+      <!-- Overlay Screen Mask -->
+      <div id="overlay" class="fixed inset-0 bg-black bg-opacity-70 z-40 hidden backdrop-blur-sm"></div>
     </div>
 
-</body>
+    <!-- Branding Slider Showcase Panel -->
+    <div class="relative w-full overflow-hidden mt-1">
+      <div class="swiper" id="BrandingSwiper">
+        <div class="swiper-wrapper lg:h-[60vh]">
+          
+          <!-- 💡 IMAGE SLIDER SLIDES: Update "assets/slideX.jpg" with your hosted asset link anytime -->
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative">
+            <img src="assets/slide1.jpg" class="w-full md:h-[400px] lg:h-full object-cover hidden md:block" alt="Slide 1 Desktop" />
+            <img src="assets/slide1_mobile.jpg" class="w-full h-[55vh] object-cover block md:hidden" alt="Slide 1 Mobile" />
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative">
+            <img src="assets/slide2.jpg" class="w-full md:h-[400px] lg:h-full object-cover hidden md:block" alt="Slide 2 Desktop" />
+            <img src="assets/slide2_mobile.jpg" class="w-full h-[55vh] object-cover block md:hidden" alt="Slide 2 Mobile" />
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative">
+            <img src="assets/slide3.jpg" class="w-full md:h-[400px] lg:h-full object-cover hidden md:block" alt="Slide 3 Desktop" />
+            <img src="assets/slide3_mobile.jpg" class="w-full h-[55vh] object-cover block md:hidden" alt="Slide 3 Mobile" />
+          </div>
+        </div>
+        <!-- Pagination Markers -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Live Native App Widget Operations Section -->
+    <section id="tabsWrapper" class="max-w-4xl mx-auto py-8 px-2 font-muli">
+      <div class="text-xs uppercase font-bold tracking-widest text-neutral-400 mb-4 px-2">Store Action Hub</div>
+      <div id="tabs" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3">
+         <!-- Populated dynamically via script.js native framework arrays -->
+      </div>
+      <!-- Toggle Expand Button -->
+      <div class="flex justify-center mt-4 sm:hidden">
+        <button id="toggleBtn" class="text-sm flex flex-col items-center gap-1">
+          <svg id="toggleIcon" class="w-8 h-8 text-[#B89748] transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+          <span id="toggleText" class="text-neutral-400 text-xs tracking-wider uppercase">Show More</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Detailed Corporate About Module -->
+    <section class="py-6 border-t border-neutral-900 bg-[#0F0F11]">
+      <div class="max-w-4xl mx-auto px-4">
+        <header class="mb-8">
+          <h1 class="text-2xl text-center font-bold font-playfair tracking-wider gold-gradient">ABOUT US</h1>
+        </header>
+
+        <div class="luxury-card rounded-2xl p-6 shadow-xl mb-8">
+          <h2 class="text-base font-bold font-muli text-[#F3E7C4] mb-3 tracking-wide uppercase">The Ranka Legacy</h2>
+          <p class="text-sm leading-relaxed text-neutral-400 font-muli text-justify">
+            Ranka Jewellers, a 143 year old establishment, is the unparalleled supremo of the jewellery business spread across 12 stores in Pune & Thane. Built on trust, tradition, and purity, Ranka is known for their innovative and ethnic designs that are always up to date with trends, transparency and quality.
+            <br/><br/>
+            The young and dynamic group of directors are the sixth generation steering the Ranka Group. Their clear vision to continue the heritage of making the best quality of precious jewelry, to provide excellent customer care, and to make a difference in society has enabled Ranka to expand its business in all corners of Pune and Pimpri Chinchwad.
+          </p>
+        </div>
+
+        <!-- Inline Media Showcase Component -->
+        <div class="grid md:grid-cols-2 gap-4 items-center mb-8">
+          <div class="rounded-xl overflow-hidden border border-neutral-800">
+            <!-- 💡 IMAGE PLACEMENT: Feel free to swap this fallback URL with any item photo path -->
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" alt="Ranka Collection Showcase" class="w-full object-cover" />
+          </div>
+          <div class="luxury-card rounded-2xl p-5">
+            <h2 class="text-base font-bold mb-2 text-[#F3E7C4] tracking-wide uppercase">The Brand Speaks</h2>
+            <p class="text-xs leading-relaxed text-neutral-400 text-justify">
+              Our selection of brand ambassadors personifies the value of trust, style, and legacy of excellence that we carry along with us. Timeless partnerships represent the vibrance of Ranka and its timelessness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promises & Certifications Trust Badges Section -->
+    <section class="py-8 bg-[#0B0B0C]">
+      <header class="mb-6">
+        <h1 class="text-xl text-center font-bold font-playfair tracking-widest gold-gradient">RANKA PROMISES</h1>
+      </header>
+      <div class="max-w-4xl mx-auto px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-7 gap-3 text-center text-neutral-300 font-muli">
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
+          <div class="text-2xl mb-1">🛡️</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">BIS<br/>Hallmarked</h4>
+        </div>
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
+          <div class="text-2xl mb-1">🔄</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">100%<br/>Exchange</h4>
+        </div>
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
+          <div class="text-2xl mb-1">📋</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">Insurance<br/>On Demand</h4>
+        </div>
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
+          <div class="text-2xl mb-1">💎</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">Lifetime<br/>Buyback</h4>
+        </div>
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
+          <div class="text-2xl mb-1">👑</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">1000+<br/>Designs</h4>
+        </div>
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
+          <div class="text-2xl mb-1">✨</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">100%<br/>Pure Trust</h4>
+        </div>
+        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl col-span-3 md:col-span-1">
+          <div class="text-2xl mb-1">🏛️</div>
+          <h4 class="text-[10px] font-bold tracking-tight uppercase">Since<br/>1879</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Footer Core Module -->
+    <footer class="bg-[#121214] border-t border-neutral-900 px-4 py-8 text-neutral-400 text-center font-muli">
+      <div class="max-w-md mx-auto">
+        <h3 class="font-bold text-sm tracking-widest text-[#F3E7C4] mb-2 uppercase">Store Location</h3>
+        <p class="text-xs leading-relaxed mb-4">
+          Empire Estate, CTS 4510, 1, Old Mumbai - Pune Highway,<br/>
+          Chinchwad, Pune, Maharashtra. 411019
+        </p>
+        <p class="text-[11px] text-neutral-500 mb-4">Hours: 10:30am - 8:00pm | Closed on Monday</p>
+        <div class="text-xs border-t border-neutral-800 pt-4 text-[#B89748]">
+          Support: 8956527691
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts Injection Pipeline -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
