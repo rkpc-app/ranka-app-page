@@ -11,10 +11,8 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Muli:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
 
     <style>
-      /* Luxury Dark Theme Global Variables & System Overrides */
       body {
         background-color: #0B0B0C;
         color: #E5E5E5;
@@ -29,7 +27,6 @@
         background: linear-gradient(145deg, #1C1C1E 0%, #121214 100%);
         border: 1px solid rgba(184, 151, 72, 0.15);
       }
-      /* Swiper Pagination Styling Customization */
       .swiper-pagination-bullet-active {
         background: #B89748 !important;
       }
@@ -38,7 +35,7 @@
   <body>
     <!-- Header Component -->
     <div>
-      <header class="bg-[#121214] text-white relative flex items-center justify-center px-4 md:px-10 border-b border-rgba(184,151,72,0.2) h-24" data-aos="fade-down">
+      <header class="bg-[#121214] text-white relative flex items-center justify-center px-4 md:px-10 border-b border-neutral-900 h-24">
         <!-- Hamburger Menu Drawer Icon -->
         <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none bg-neutral-900 p-2 rounded-xl border border-neutral-800" aria-label="Open Menu">
           <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-7 h-7 invert" loading="lazy" />
@@ -46,9 +43,7 @@
 
         <!-- Centered Branding Identity -->
         <div class="flex items-center gap-2 py-2">
-          <!-- 💡 LOGO IMAGE CUSTOMIZATION: Replace assets/logo.jpg with your new server or hosting path -->
-          <img src="assets/logo.jpg" alt="Ranka Logo" class="h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-          <span class="hidden font-playfair tracking-widest text-xl font-bold gold-gradient">RANKA</span>
+          <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Ranka Logo" class="h-12 object-contain" />
         </div>
       </header>
 
@@ -56,12 +51,12 @@
       <div id="drawer" class="fixed top-0 left-0 w-2/3 max-w-sm h-full bg-[#121214] border-r border-neutral-800 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
         <div class="flex justify-between items-center gap-4 px-4 py-5 border-b border-neutral-800">
           <div class="text-2xl font-bold flex items-center gap-2">
-            <img src="assets/logo.jpg" alt="Logo" class="h-12" />
+             <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Ranka Logo" class="h-8 object-contain" />
           </div>
           <button id="close-drawer" class="text-white/70 hover:text-white rounded text-2xl font-bold px-2" aria-label="Close Menu">✕</button>
         </div>
 
-        <!-- System Core JavaScript Integrations Links (Untouched API Call Hooks) -->
+        <!-- System Core JavaScript Integrations Links -->
         <nav class="flex flex-col gap-1 px-4 py-4 text-neutral-300 font-muli">
           <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToScheme()">✨ Scheme Registration</a>
           <a class="hover:bg-neutral-900 hover:text-[#B89748] px-4 py-3 rounded-xl transition" href="#" onclick="navigateToBankDetails()">🏦 Bank Details</a>
@@ -82,137 +77,129 @@
       <div id="overlay" class="fixed inset-0 bg-black bg-opacity-70 z-40 hidden backdrop-blur-sm"></div>
     </div>
 
+    <!-- Live Metal Rates Interactive Module -->
+    <div class="max-w-4xl mx-auto px-2 mt-4">
+        <div class="live-rate-container luxury-card rounded-2xl padding p-5">
+            <div class="flex justify-between items-center mb-4 border-b border-neutral-800 pb-2">
+                <h3 class="text-xs uppercase font-bold tracking-widest text-neutral-400">Live Metal Rates</h3>
+                <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Live
+                </span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-muli text-neutral-200">24K Gold (10g)</span>
+                <span class="text-base font-bold text-[#B89748]">₹ 78,950</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-sm font-muli text-neutral-200">22K Gold (10g)</span>
+                <span class="text-base font-bold text-[#B89748]">₹ 72,450</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Branding Slider Showcase Panel -->
-    <div class="relative w-full overflow-hidden mt-1">
-      <div class="swiper" id="BrandingSwiper">
-        <div class="swiper-wrapper lg:h-[60vh]">
-          
-          <!-- 💡 IMAGE SLIDER SLIDES: Update "assets/slideX.jpg" with your hosted asset link anytime -->
+    <div class="max-w-4xl mx-auto px-2 relative overflow-hidden mt-4">
+      <div class="swiper rounded-2xl" id="BrandingSwiper">
+        <div class="swiper-wrapper">
           <!-- Slide 1 -->
           <div class="swiper-slide relative">
-            <img src="assets/slide1.jpg" class="w-full md:h-[400px] lg:h-full object-cover hidden md:block" alt="Slide 1 Desktop" />
-            <img src="assets/slide1_mobile.jpg" class="w-full h-[55vh] object-cover block md:hidden" alt="Slide 1 Mobile" />
+            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80" class="w-full h-[30vh] object-cover" alt="Slide 1" />
           </div>
           <!-- Slide 2 -->
           <div class="swiper-slide relative">
-            <img src="assets/slide2.jpg" class="w-full md:h-[400px] lg:h-full object-cover hidden md:block" alt="Slide 2 Desktop" />
-            <img src="assets/slide2_mobile.jpg" class="w-full h-[55vh] object-cover block md:hidden" alt="Slide 2 Mobile" />
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide relative">
-            <img src="assets/slide3.jpg" class="w-full md:h-[400px] lg:h-full object-cover hidden md:block" alt="Slide 3 Desktop" />
-            <img src="assets/slide3_mobile.jpg" class="w-full h-[55vh] object-cover block md:hidden" alt="Slide 3 Mobile" />
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" class="w-full h-[30vh] object-cover" alt="Slide 2" />
           </div>
         </div>
-        <!-- Pagination Markers -->
         <div class="swiper-pagination"></div>
       </div>
     </div>
 
-    <!-- Live Native App Widget Operations Section -->
-    <section id="tabsWrapper" class="max-w-4xl mx-auto py-8 px-2 font-muli">
-      <div class="text-xs uppercase font-bold tracking-widest text-neutral-400 mb-4 px-2">Store Action Hub</div>
+    <!-- Interactive Grid Dashboard Items -->
+    <section id="tabsWrapper" class="max-w-4xl mx-auto py-6 px-2 font-muli">
+      <div class="text-xs uppercase font-bold tracking-widest text-neutral-400 mb-4 px-1">Quick Actions Hub</div>
       <div id="tabs" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3">
-         <!-- Populated dynamically via script.js native framework arrays -->
-      </div>
-      <!-- Toggle Expand Button -->
-      <div class="flex justify-center mt-4 sm:hidden">
-        <button id="toggleBtn" class="text-sm flex flex-col items-center gap-1">
-          <svg id="toggleIcon" class="w-8 h-8 text-[#B89748] transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-          <span id="toggleText" class="text-neutral-400 text-xs tracking-wider uppercase">Show More</span>
-        </button>
+          
+          <div onclick="navigateToScheme()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">✨</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">Scheme</span>
+          </div>
+          <div onclick="navigateToBankDetails()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">🏦</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">Bank</span>
+          </div>
+          <div onclick="navigateToKyc()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">🛡️</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">KYC</span>
+          </div>
+          <div onclick="navigateToRate()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">📈</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">Rate</span>
+          </div>
+          <div onclick="navigateSchemeRecords()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">📊</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">Records</span>
+          </div>
+          <div onclick="navigateToCustomerCard()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">🪪</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">Card</span>
+          </div>
+          <div onclick="navigateToUserProfile()" class="cursor-pointer bg-[#1C1C1E] border border-neutral-800 rounded-xl p-4 text-center active:scale-95 transition">
+            <span class="text-2xl mb-1 block">👤</span>
+            <span class="text-[11px] font-bold text-neutral-300 uppercase">Profile</span>
+          </div>
+
       </div>
     </section>
 
-    <!-- Detailed Corporate About Module -->
-    <section class="py-6 border-t border-neutral-900 bg-[#0F0F11]">
+    <!-- Detailed About Section -->
+    <section class="py-6 bg-[#0F0F11]">
       <div class="max-w-4xl mx-auto px-4">
-        <header class="mb-8">
-          <h1 class="text-2xl text-center font-bold font-playfair tracking-wider gold-gradient">ABOUT US</h1>
+        <header class="mb-6">
+          <h1 class="text-xl text-center font-bold font-playfair tracking-wider gold-gradient">ABOUT US</h1>
         </header>
-
-        <div class="luxury-card rounded-2xl p-6 shadow-xl mb-8">
-          <h2 class="text-base font-bold font-muli text-[#F3E7C4] mb-3 tracking-wide uppercase">The Ranka Legacy</h2>
-          <p class="text-sm leading-relaxed text-neutral-400 font-muli text-justify">
+        <div class="luxury-card rounded-2xl p-6 shadow-xl">
+          <h2 class="text-sm font-bold font-muli text-[#F3E7C4] mb-3 uppercase">The Ranka Legacy</h2>
+          <p class="text-xs leading-relaxed text-neutral-400 font-muli text-justify">
             Ranka Jewellers, a 143 year old establishment, is the unparalleled supremo of the jewellery business spread across 12 stores in Pune & Thane. Built on trust, tradition, and purity, Ranka is known for their innovative and ethnic designs that are always up to date with trends, transparency and quality.
-            <br/><br/>
-            The young and dynamic group of directors are the sixth generation steering the Ranka Group. Their clear vision to continue the heritage of making the best quality of precious jewelry, to provide excellent customer care, and to make a difference in society has enabled Ranka to expand its business in all corners of Pune and Pimpri Chinchwad.
           </p>
-        </div>
-
-        <!-- Inline Media Showcase Component -->
-        <div class="grid md:grid-cols-2 gap-4 items-center mb-8">
-          <div class="rounded-xl overflow-hidden border border-neutral-800">
-            <!-- 💡 IMAGE PLACEMENT: Feel free to swap this fallback URL with any item photo path -->
-            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" alt="Ranka Collection Showcase" class="w-full object-cover" />
-          </div>
-          <div class="luxury-card rounded-2xl p-5">
-            <h2 class="text-base font-bold mb-2 text-[#F3E7C4] tracking-wide uppercase">The Brand Speaks</h2>
-            <p class="text-xs leading-relaxed text-neutral-400 text-justify">
-              Our selection of brand ambassadors personifies the value of trust, style, and legacy of excellence that we carry along with us. Timeless partnerships represent the vibrance of Ranka and its timelessness.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Promises & Certifications Trust Badges Section -->
-    <section class="py-8 bg-[#0B0B0C]">
-      <header class="mb-6">
-        <h1 class="text-xl text-center font-bold font-playfair tracking-widest gold-gradient">RANKA PROMISES</h1>
-      </header>
-      <div class="max-w-4xl mx-auto px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-7 gap-3 text-center text-neutral-300 font-muli">
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
-          <div class="text-2xl mb-1">🛡️</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">BIS<br/>Hallmarked</h4>
-        </div>
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
-          <div class="text-2xl mb-1">🔄</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">100%<br/>Exchange</h4>
-        </div>
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
-          <div class="text-2xl mb-1">📋</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">Insurance<br/>On Demand</h4>
-        </div>
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
-          <div class="text-2xl mb-1">💎</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">Lifetime<br/>Buyback</h4>
-        </div>
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
-          <div class="text-2xl mb-1">👑</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">1000+<br/>Designs</h4>
-        </div>
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl">
-          <div class="text-2xl mb-1">✨</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">100%<br/>Pure Trust</h4>
-        </div>
-        <div class="p-2 bg-[#121214] border border-neutral-900 rounded-xl col-span-3 md:col-span-1">
-          <div class="text-2xl mb-1">🏛️</div>
-          <h4 class="text-[10px] font-bold tracking-tight uppercase">Since<br/>1879</h4>
         </div>
       </div>
     </section>
 
     <!-- Custom Footer Core Module -->
-    <footer class="bg-[#121214] border-t border-neutral-900 px-4 py-8 text-neutral-400 text-center font-muli">
-      <div class="max-w-md mx-auto">
-        <h3 class="font-bold text-sm tracking-widest text-[#F3E7C4] mb-2 uppercase">Store Location</h3>
-        <p class="text-xs leading-relaxed mb-4">
-          Empire Estate, CTS 4510, 1, Old Mumbai - Pune Highway,<br/>
-          Chinchwad, Pune, Maharashtra. 411019
-        </p>
-        <p class="text-[11px] text-neutral-500 mb-4">Hours: 10:30am - 8:00pm | Closed on Monday</p>
-        <div class="text-xs border-t border-neutral-800 pt-4 text-[#B89748]">
-          Support: 8956527691
-        </div>
-      </div>
+    <footer class="bg-[#121214] border-t border-neutral-900 px-4 py-6 text-neutral-400 text-center font-muli mt-6">
+      <p class="text-[11px] text-neutral-500">Hours: 10:30am - 8:00pm | Closed on Monday</p>
     </footer>
 
-    <!-- Scripts Injection Pipeline -->
+    <!-- Scripts Pipeline & Drawer Controls -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script>
+      // 1. Initialize Swiper for Image Banner Sliding
+      const swiper = new Swiper('#BrandingSwiper', {
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        autoplay: { delay: 3000 }
+      });
+
+      // 2. Pure Native JavaScript Drawer Open/Close Logic
+      const menuToggle = document.getElementById('menu-toggle');
+      const closeDrawer = document.getElementById('close-drawer');
+      const drawer = document.getElementById('drawer');
+      const overlay = document.getElementById('overlay');
+
+      function openMenu() {
+        drawer.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      }
+
+      function closeMenu() {
+        drawer.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+
+      menuToggle.addEventListener('click', openMenu);
+      closeDrawer.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu);
+    </script>
   </body>
 </html>
