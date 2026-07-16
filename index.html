@@ -2,253 +2,425 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranka Jewellers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Muli:wght@400;700&display=swap" rel="stylesheet" />
-
-    <style>
-      body {
-        background-color: #FAF9F6; /* Premium Off-White Warm background */
-        color: #333333;
-        -webkit-tap-highlight-color: transparent;
-      }
-      .gold-text {
-        color: #746855; /* The classic Ranka gold-brown color */
-      }
-      .luxury-card {
-        background: #ffffff;
-        border: 1px solid #EAEAEA;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      }
-      .swiper-pagination-bullet-active {
-        background: #746855 !important;
-      }
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Muli:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <!-- Header Component -->
+  <body class="bg-white">
+    <!-- Header -->
     <div>
-      <header class="bg-[#F2E9E9] text-[#133235] relative flex items-center justify-center px-4 md:px-10 h-24 border-b border-[#E2D4D4]">
-        <!-- Hamburger Menu Drawer Icon -->
-        <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none" aria-label="Open Menu">
-          <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-8 h-8" loading="lazy" />
+      <header
+        class="bg-[#F2E9E9] text-gray-900 relative flex items-center justify-center px-4 md:px-10"
+        data-aos="fade-down"
+      >
+        <!-- Hamburger Icon using Image -->
+        <button
+          id="menu-toggle"
+          class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+          aria-label="Open Menu"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png"
+            alt="menu"
+            class="w-10 h-10"
+            loading="lazy"
+          />
         </button>
 
         <!-- Centered Logo -->
-        <div class="flex items-center gap-2 py-2">
-          <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Ranka Logo" class="h-12 object-contain" />
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <!-- Fallback image logic added to ensure logo shows in-app -->
+          <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Logo" class="h-28 object-contain" onerror="this.src='assets/logo.jpg';" />
         </div>
       </header>
 
-      <!-- Navigation Drawer Component -->
-      <div id="drawer" class="fixed top-0 left-0 w-2/3 max-w-sm h-full bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
-        <div class="flex justify-between items-center gap-4 px-4 py-5 border-b border-gray-200">
-          <div class="text-2xl font-bold flex items-center gap-2">
-             <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Ranka Logo" class="h-8 object-contain" />
+      <!-- Drawer -->
+      <div
+        id="drawer"
+        class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+      >
+        <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+          <!-- Drawer Logo -->
+          <div
+            class="text-2xl font-bold text-[#133235] flex items-center gap-2"
+          >
+            <img src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" alt="Logo" class="h-16 object-contain" onerror="this.src='assets/logo.jpg';" />
           </div>
-          <button id="close-drawer" class="text-gray-800 rounded text-2xl font-bold px-2" aria-label="Close Menu">✕</button>
+          <!-- Close Drawer Button -->
+          <button
+            id="close-drawer"
+            class="text-black rounded text-2xl font-bold"
+            aria-label="Close Menu"
+          >
+            ✕
+          </button>
         </div>
 
-        <!-- System Core Links (Exactly matching the original drawer) -->
-        <nav class="flex flex-col gap-1 px-4 py-4 text-gray-800 font-muli">
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToScheme()">Scheme</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToBankDetails()">Bank</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToKyc()">KYC</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToRate()">Rate</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateSchemeRecords()">Records</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToCustomerCard()">Card</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateTransactionHistory()">History</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToMyOrder()">Order</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToUserProfile()">Profile</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToDigitalGold()">Gold</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToARVirtualTryOn()">Virtual Try-On</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToPanchang()">Panchang</a>
-          <a class="hover:bg-gray-100 hover:text-[#746855] px-4 py-3 rounded-xl transition font-bold" href="#" onclick="navigateToSetting()">Settings</a>
+        <!-- Drawer Navigation Links -->
+        <nav class="flex flex-col gap-4 px-6 py-6 text-black">
+          <a href="#" onclick="navigateToScheme()">Scheme</a>
+          <a href="#" onclick="navigateToBankDetails()">Bank</a>
+          <a href="#" onclick="navigateToKyc()">KYC</a>
+          <a href="#" onclick="navigateToRate()">Rate</a>
+          <a href="#" onclick="navigateSchemeRecords()">Records</a>
+          <a href="#" onclick="navigateToCustomerCard()">Card</a>
+          <a href="#" onclick="navigateTransactionHistory()">History</a>
+          <a href="#" onclick="navigateToMyOrder()">Order</a>
+          <a href="#" onclick="navigateToUserProfile()">Profile</a>
+          <a href="#" onclick="navigateToDigitalGold()">Gold</a>
+          <a href="#" onclick="navigateToARVirtualTryOn()">Virtual Try-On</a>
+          <a href="#" onclick="navigateToPanchang()">Panchang</a>
+          <a href="#" onclick="navigateToSetting()">Settings</a>
         </nav>
       </div>
-      <!-- Overlay Screen Mask -->
-      <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 z-40 hidden backdrop-blur-sm"></div>
+      <!-- Overlay -->
+      <div
+        id="drawer-overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      ></div>
     </div>
 
-    <!-- Live Metal Rates Module -->
-    <div class="max-w-4xl mx-auto px-4 mt-6">
-        <div class="live-rate-container luxury-card rounded-2xl p-5">
-            <div class="flex justify-between items-center mb-4 border-b border-gray-100 pb-2">
-                <h3 class="text-xs uppercase font-bold tracking-widest text-[#746855] font-playfair">Live Metal Rates</h3>
-                <span class="text-[10px] text-emerald-600 font-bold uppercase tracking-wider flex items-center gap-1">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Live
-                </span>
-            </div>
-            <div class="flex justify-between items-center mb-2">
-                <span class="text-sm font-muli text-gray-700">24K Gold (10g)</span>
-                <span class="text-base font-bold text-[#746855]">₹ 78,950</span>
-            </div>
-            <div class="flex justify-between items-center">
-                <span class="text-sm font-muli text-gray-700">22K Gold (10g)</span>
-                <span class="text-base font-bold text-[#746855]">₹ 72,450</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Branding Slider Showcase Banners -->
-    <div class="max-w-4xl mx-auto px-4 relative overflow-hidden mt-6">
-      <div class="swiper rounded-2xl" id="BrandingSwiper">
-        <div class="swiper-wrapper">
+    <!-- BrandingSwiper -->
+    <div class="relative w-full">
+      <div class="swiper" id="BrandingSwiper">
+        <div class="swiper-wrapper lg:h-[80vh]">
           <!-- Slide 1 -->
-          <div class="swiper-slide relative">
-            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80" class="w-full h-[25vh] object-cover" alt="Slide 1" />
+          <div class="swiper-slide relative lg:h-auto">
+            <img
+              src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80"
+              class="w-full md:h-[400px] lg:h-full object-cover hidden md:block"
+              alt="Slide 1 Desktop"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80"
+              class="w-full h-[70vh] object-cover block md:hidden"
+              alt="Slide 1 Mobile"
+            />
           </div>
+
           <!-- Slide 2 -->
-          <div class="swiper-slide relative">
-            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" class="w-full h-[25vh] object-cover" alt="Slide 2" />
+          <div class="swiper-slide relative lg:h-auto">
+            <img
+              src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80"
+              class="w-full md:h-[400px] lg:h-full object-cover hidden md:block"
+              alt="Slide 2 Desktop"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80"
+              class="w-full h-[70vh] object-cover block md:hidden"
+              alt="Slide 2 Mobile"
+            />
           </div>
         </div>
+        <!-- Pagination -->
         <div class="swiper-pagination"></div>
+        <!-- Arrows -->
+        <div
+          class="swiper-button-prev !text-white font-bold w-12 h-12 bg-black/40 hover:!bg-[#C09B4B] hover:!text-white p-2 shadow-xl hidden md:flex"
+        ></div>
+        <div
+          class="swiper-button-next !text-white font-bold w-12 h-12 bg-black/40 hover:!bg-[#C09B4B] hover:!text-white p-2 shadow-xl hidden md:flex"
+        ></div>
       </div>
     </div>
 
-    <!-- Interactive Grid Dashboard Items (Linking directly to App Interface actions) -->
-    <section id="tabsWrapper" class="max-w-4xl mx-auto py-6 px-4 font-muli">
-      <div class="text-xs uppercase font-bold tracking-widest text-gray-500 mb-4">Quick Actions Hub</div>
+    <!-- services / Quick Actions Hub Layout Rebuilt with Gold Accent Theme Icons -->
+    <section id="tabsWrapper" class="max-w-4xl mx-auto py-8 px-4 font-playfair">
       <div id="tabs" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3">
           
-          <div onclick="navigateToScheme()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">✨</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">Scheme</span>
+          <div onclick="navigateToScheme()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">✨</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">Scheme</span>
           </div>
-          <div onclick="navigateToBankDetails()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">🏦</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">Bank</span>
+          <div onclick="navigateToBankDetails()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">👑</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">Bank</span>
           </div>
-          <div onclick="navigateToKyc()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">🛡️</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">KYC</span>
+          <div onclick="navigateToKyc()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">🏆</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">KYC</span>
           </div>
-          <div onclick="navigateToRate()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">📈</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">Rate</span>
+          <div onclick="navigateToRate()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">🌟</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">Rate</span>
           </div>
-          <div onclick="navigateSchemeRecords()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">📊</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">Records</span>
+          <div onclick="navigateSchemeRecords()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">📊</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">Records</span>
           </div>
-          <div onclick="navigateToCustomerCard()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">🪪</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">Card</span>
+          <div onclick="navigateToCustomerCard()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">🪪</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">Card</span>
           </div>
-          <div onclick="navigateToUserProfile()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm">
-            <span class="text-2xl mb-1 block">👤</span>
-            <span class="text-[11px] font-bold text-gray-700 uppercase">Profile</span>
+          <div onclick="navigateToUserProfile()" class="cursor-pointer bg-white border border-gray-200 rounded-xl p-4 text-center active:scale-95 transition shadow-sm hover:border-[#746855]">
+            <span class="text-2xl mb-1 block text-[#C09B4B]">👤</span>
+            <span class="text-[11px] font-bold text-gray-700 font-muli uppercase tracking-wide">Profile</span>
           </div>
 
       </div>
     </section>
 
-    <!-- Detailed About Section -->
-    <section class="py-8 bg-[#F2E9E9]/40 border-t border-b border-gray-200">
-      <div class="max-w-4xl mx-auto px-4">
-        <header class="mb-6">
-          <h1 class="text-2xl text-center font-bold font-playfair tracking-wider text-[#746855]">ABOUT US</h1>
+    <!-- about -->
+    <section class="md:py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <!-- Page Header -->
+        <header class="mb-10" data-aos="fade-down">
+          <h1
+            class="text-4xl text-[#746855] text-center font-bold font-playfair"
+          >
+            About Us
+          </h1>
         </header>
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
-          <h2 class="text-base font-bold font-muli text-[#746855] mb-3 uppercase">The Ranka Legacy</h2>
-          <p class="text-sm leading-relaxed text-gray-600 font-muli text-justify">
-            Ranka Jewellers, a 143 year old establishment, is the unparalleled supremo of the jewellery business spread across 12 stores in Pune & Thane. Built on trust, tradition, and purity, Ranka is known for their innovative and ethnic designs that are always up to date with trends, transparency and quality.
+        <!-- Section 1: The Legacy History Content Completely Retained -->
+        <section class="mb-12" data-aos="fade-up">
+          <h2
+            class="text-xl md:text-2xl font-semibold font-muli text-[#746855] mb-4 uppercase"
+          >
+            The Ranka Legacy
+          </h2>
+          <p class="text-base leading-relaxed font-muli text-[#746855] text-justify">
+            Ranka Jewellers, a 143 year old establishment, is the unparalleled
+            supremo of the jewellery business spread across 12 stores in Pune &
+            Thane. Built on trust, tradition, and purity, Ranka is known for
+            their innovative and ethnic designs that are always up to date with
+            trends, transparency and quality.
+            <br />
+            <br />
+            The Ranka Group has also been pioneers and trend setters for signing
+            Bollywood celebrities as brand ambassadors. Vidya Balan was the
+            first celebrity, followed by Twinkle Khanna and Dimple Kapadia.
+            Today, Ranka Jewellers is one of the largest and most successful
+            brands in the jewellery industry. It is set with values infused by
+            the founders, which forms the backbone of the entire group.
+            <br />
+            <br />
+            The young and dynamic group of directors are the sixth generation
+            steering the Ranka Group. Their clear vision to continue the
+            heritage of making the best quality of precious jewelry, to provide
+            excellent customer care, and to make a difference in society has
+            enabled Ranka to expand its business in all corners of Pune and
+            Pimpri Chinchwad.
+          </p>
+        </section>
+        
+        <!-- Banner Image -->
+        <section class="mb-8" data-aos="zoom-in">
+          <img
+            src="https://rankajewellers.in/cdn/shop/files/founder_images.jpg?v=1648271235"
+            alt="Jewellers in Pune"
+            class="w-full md:h-[500px] object-cover rounded-xl"
+          />
+        </section>
+      </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section class="md:py-8" data-aos="fade-up">
+      <!-- Page Header -->
+      <header class="mb-8" data-aos="fade-down">
+        <h1 class="text-3xl md:text-4xl text-[#746855] text-center font-bold font-playfair">
+          Ranka Promises
+        </h1>
+        <p class="text-[#746855] text-center font-muli py-2">
+          Your Satisfaction, Our Promise
+        </p>
+      </header>
+      <div
+        class="max-w-7xl mx-auto px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-7 lg:grid-cols-7 gap-4 text-center"
+      >
+        <!-- 1. BIS Hallmarked Jewellery -->
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <div class="text-3xl mb-1 text-[#C09B4B]">🛡️</div>
+          <h4 class="text-xs font-semibold leading-snug text-gray-800">
+            BIS<br />Hallmarked<br />Jewellery
+          </h4>
+        </div>
+        <!-- 2. 100% Exchange -->
+        <div data-aos="zoom-in" data-aos-delay="300">
+          <div class="text-3xl mb-1 text-[#C09B4B]">🔄</div>
+          <h4 class="text-xs font-semibold leading-snug text-gray-800">
+            100% exchange<br />rate on<br />gold/diamonds
+          </h4>
+        </div>
+        <!-- 3. Jewellery Insurance -->
+        <div data-aos="zoom-in" data-aos-delay="400">
+          <div class="text-3xl mb-1 text-[#C09B4B]">📋</div>
+          <h4 class="text-xs font-semibold leading-snug text-gray-800">
+            Jewellery<br />Insurance<br />on demand
+          </h4>
+        </div>
+        <!-- 4. Lifetime Buyback -->
+        <div data-aos="zoom-in" data-aos-delay="500">
+          <div class="text-3xl mb-1 text-[#C09B4B]">💎</div>
+          <h4 class="text-xs font-semibold leading-snug text-gray-800">
+            Assured<br />Lifetime<br />buyback
+          </h4>
+        </div>
+        <!-- 5. 1000+ Designs -->
+        <div data-aos="zoom-in" data-aos-delay="600">
+          <div class="text-3xl mb-1 text-[#C09B4B]">👑</div>
+          <h4 class="text-xs font-semibold leading-snug text-gray-800">
+            1000+<br />Designs<br />per category
+          </h4>
+        </div>
+        <!-- 6. 100% Transparency -->
+        <div data-aos="zoom-in" data-aos-delay="700">
+          <div class="text-3xl mb-1 text-[#C09B4B]">✨</div>
+          <h4 class="text-xs font-semibold leading-snug text-gray-800">
+            100%<br />Transparency<br />in payment
+          </h4>
+        </div>
+        <!-- 7. Legacy Since 1879 -->
+        <div
+          class="col-span-3 flex justify-center md:col-span-1 mb-8 md:mb-0"
+          data-aos="zoom-in"
+          data-aos-delay="800"
+        >
+          <div>
+            <div class="text-3xl mb-1 text-[#C09B4B]">🏛️</div>
+            <h4 class="text-xs font-semibold leading-snug text-gray-800">
+              A legacy of<br />trust since<br />1879
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#F2E9E9] px-4 py-8 mx-auto">
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <img
+          src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526"
+          alt="Ranka Logo"
+          class=""
+        />
+      </div>
+      <!-- Address Info -->
+      <div class="text-center mb-6">
+        <h3 class="font-semibold text-lg font-muli">ADDRESS</h3>
+        <p class="mt-1 text-lg">
+          <a href="#" class="hover:underline font-muli text-lg">
+            Empire Estate, CTS 4510, 1, Old Mumbai - Pune Highway,<br />
+            Chinchwad, Pune, Maharashtra. 411019
+          </a>
+          <br /><br />
+          Hours: Tuesday to Sunday 10:30am - 8pm. Closed on Monday
+        </p>
+      </div>
+      <!-- Contact Info -->
+      <div class="flex items-start justify-center gap-4 text-sm">
+        <div>
+          <p class="text-lg text-center">
+            Contact : 8956527691 (020) 46201100 (Pimpri Chinchwad Store)
           </p>
         </div>
       </div>
-    </section>
-
-    <!-- Custom Footer Module -->
-    <footer class="bg-[#F2E9E9] px-4 py-8 text-center font-muli text-gray-600">
-      <p class="text-xs">Empire Estate, CTS 4510, 1, Old Mumbai - Pune Highway, Chinchwad, Pune.</p>
-      <p class="text-[11px] text-gray-500 mt-2">Hours: 10:30am - 8:00pm | Closed on Monday</p>
     </footer>
 
-    <!-- Scripts Pipeline & Drawer Controls -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      // Initialize Swiper for Image Banners
-      const swiper = new Swiper('#BrandingSwiper', {
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        autoplay: { delay: 3000 }
-      });
+    <!-- Back to Top Button -->
+    <button
+      id="backToTopBtn"
+      class="hidden fixed bottom-6 right-6 z-50 bg-red-600 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 ring-inset ring-2 ring-yellow-600"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 font-bold"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 18.75 7.5-7.5 7.5 7.5"
+        />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 12.75 7.5-7.5 7.5 7.5"
+        />
+      </svg>
+    </button>
 
-      // Drawer Open/Close Logics
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+      // Initialize AOS Animations
+      AOS.init();
+
+      // Drawer Open/Close Script
       const menuToggle = document.getElementById('menu-toggle');
       const closeDrawer = document.getElementById('close-drawer');
       const drawer = document.getElementById('drawer');
-      const overlay = document.getElementById('overlay');
+      const overlay = document.getElementById('drawer-overlay');
 
-      function openMenu() {
-        drawer.classList.remove('-translate-x-full');
-        overlay.classList.remove('hidden');
-      }
-
-      function closeMenu() {
-        drawer.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
+      if(menuToggle && drawer && overlay) {
+        menuToggle.addEventListener('click', () => {
+          drawer.classList.remove('-translate-x-full');
+          overlay.classList.remove('hidden');
+        });
       }
 
-      menuToggle.addEventListener('click', openMenu);
-      closeDrawer.addEventListener('click', closeMenu);
-      overlay.addEventListener('click', closeMenu);
+      if(closeDrawer && drawer && overlay) {
+        closeDrawer.addEventListener('click', () => {
+          drawer.classList.add('-translate-x-full');
+          overlay.classList.add('hidden');
+        });
+        overlay.addEventListener('click', () => {
+          drawer.classList.add('-translate-x-full');
+          overlay.classList.add('hidden');
+        });
+      }
 
-      // --- CRITICAL LIVE-APP LINK INTERCEPTORS ---
-      // These functions match the native events embedded in your App Wrapper
-      function navigateToScheme() {
-          if (window.Android && window.Android.navigateToScheme) { window.Android.navigateToScheme(); }
-          else { window.location.href = "scheme-link"; }
-      }
-      function navigateToBankDetails() {
-          if (window.Android && window.Android.navigateToBankDetails) { window.Android.navigateToBankDetails(); }
-          else { window.location.href = "bank-link"; }
-      }
-      function navigateToKyc() {
-          if (window.Android && window.Android.navigateToKyc) { window.Android.navigateToKyc(); }
-          else { window.location.href = "kyc-link"; }
-      }
-      function navigateToRate() {
-          if (window.Android && window.Android.navigateToRate) { window.Android.navigateToRate(); }
-          else { window.location.href = "rate-link"; }
-      }
-      function navigateSchemeRecords() {
-          if (window.Android && window.Android.navigateSchemeRecords) { window.Android.navigateSchemeRecords(); }
-          else { window.location.href = "records-link"; }
-      }
-      function navigateToCustomerCard() {
-          if (window.Android && window.Android.navigateToCustomerCard) { window.Android.navigateToCustomerCard(); }
-          else { window.location.href = "card-link"; }
-      }
-      function navigateToUserProfile() {
-          if (window.Android && window.Android.navigateToUserProfile) { window.Android.navigateToUserProfile(); }
-          else { window.location.href = "profile-link"; }
-      }
-      function navigateTransactionHistory() {
-          if (window.Android && window.Android.navigateTransactionHistory) { window.Android.navigateTransactionHistory(); }
-      }
-      function navigateToMyOrder() {
-          if (window.Android && window.Android.navigateToMyOrder) { window.Android.navigateToMyOrder(); }
-      }
-      function navigateToDigitalGold() {
-          if (window.Android && window.Android.navigateToDigitalGold) { window.Android.navigateToDigitalGold(); }
-      }
-      function navigateToARVirtualTryOn() {
-          if (window.Android && window.Android.navigateToARVirtualTryOn) { window.Android.navigateToARVirtualTryOn(); }
-      }
-      function navigateToPanchang() {
-          if (window.Android && window.Android.navigateToPanchang) { window.Android.navigateToPanchang(); }
-      }
-      function navigateToSetting() {
-          if (window.Android && window.Android.navigateToSetting) { window.Android.navigateToSetting(); }
-      }
+      // Slider initialization with rotation speed cut exactly in half (6000ms delay)
+      const brandingSwiper = new Swiper('#BrandingSwiper', {
+        loop: true,
+        autoplay: {
+          delay: 6000, 
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      // Original app event triggers mapped to global scope for button continuity
+      function navigateToScheme() { if(window.Android) window.Android.navigateToScheme(); }
+      function navigateToBankDetails() { if(window.Android) window.Android.navigateToBankDetails(); }
+      function navigateToKyc() { if(window.Android) window.Android.navigateToKyc(); }
+      function navigateToRate() { if(window.Android) window.Android.navigateToRate(); }
+      function navigateSchemeRecords() { if(window.Android) window.Android.navigateSchemeRecords(); }
+      function navigateToCustomerCard() { if(window.Android) window.Android.navigateToCustomerCard(); }
+      function navigateToUserProfile() { if(window.Android) window.Android.navigateToUserProfile(); }
+      function navigateTransactionHistory() { if(window.Android) window.Android.navigateTransactionHistory(); }
+      function navigateToMyOrder() { if(window.Android) window.Android.navigateToMyOrder(); }
+      function navigateToDigitalGold() { if(window.Android) window.Android.navigateToDigitalGold(); }
+      function navigateToARVirtualTryOn() { if(window.Android) window.Android.navigateToARVirtualTryOn(); }
+      function navigateToPanchang() { if(window.Android) window.Android.navigateToPanchang(); }
+      function navigateToSetting() { if(window.Android) window.Android.navigateToSetting(); }
     </script>
+    <script src="script.js"></script>
   </body>
 </html>
